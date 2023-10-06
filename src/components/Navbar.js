@@ -9,8 +9,8 @@ import { useProductsContext } from '../context/products_context';
 import { useUserContext } from '../context/user_context';
 
 const Nav = () => {
-  const { openSidebar } = useProductsContext()
-  const { myUser } = useUserContext()
+  const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
 
   return (
     <NavContainer>
@@ -25,16 +25,18 @@ const Nav = () => {
         </div>
         <ul className="nav-links">
           {links.map((link) => {
-            const { id, text, url } = link
-            return <li key={id}>
-              <Link to={url}>{text}</Link>
-            </li>
+            const { id, text, url } = link;
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            );
           })}
-          {myUser &&
+          {myUser && (
             <li>
               <Link to="/checkout">checkout</Link>
             </li>
-          }
+          )}
         </ul>
         <CartButtons />
       </div>
@@ -58,8 +60,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 175px;
-      margin-left: -15px;
+      width: 250px;
     }
   }
   .nav-toggle {
